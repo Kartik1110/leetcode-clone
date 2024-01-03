@@ -1,19 +1,20 @@
+import Card from "./common/Card";
 import googleLogo from "../assets/google.svg";
 import siginBg from "../assets/signin-bg.jpg";
 
-export const SignIn = () => {
+function SignIn() {
   const onSignin = () => {
     alert("Sign In");
   };
 
   return (
-    <div className="flex h-screen w-screen ">
+    <div className="flex h-[92vh] w-screen ">
       <div className="w-[30vw]">
         <img src={siginBg} alt="High Tech Image" className="w-full h-full object-cover" />
       </div>
 
       <div className="w-[70vw] flex items-center justify-center bg-gradient-to-r from-black to-gray-800">
-        <div className="bg-gray-800 p-5 shadow-md rounded-md w-full max-w-md text-white flex flex-col items-center justify-center">
+        <Card>
           <div className="mb-5 float-left text-left">
             <div className="mb-5">
               <h2 className="text-2xl font-semibold">Login</h2>
@@ -57,8 +58,10 @@ export const SignIn = () => {
             <img src={googleLogo} alt="Google Logo" className="h-5 w-5 mr-2" />
             Login with Google
           </button>
-        </div>
+        </Card>
       </div>
     </div>
   );
-};
+}
+
+export default SignIn;
