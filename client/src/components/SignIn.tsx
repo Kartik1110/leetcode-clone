@@ -1,28 +1,24 @@
 import googleLogo from "../assets/google.svg";
+import siginBg from "../assets/signin-bg.jpg";
 
 export const SignIn = () => {
-
-  function onSignin() {}
+  const onSignin = () => {
+    alert("Sign In");
+  };
 
   return (
     <div className="flex h-screen w-screen ">
-      {/* Left Section - High Tech Image */}
-      {/* <div className="flex-1 w-full bg-gradient-to-r from-black to-green-500"> */}
-        {/* You can replace the image URL below with your high tech image */}
-        {/* <img
-          src="../assets/google.svg"
-          alt="High Tech Image"
-          className="w-full h-full object-cover"
-        /> */}
-      {/* </div> */}
+      <div className="w-[30vw]">
+        <img src={siginBg} alt="High Tech Image" className="w-full h-full object-cover" />
+      </div>
 
-      <div className="flex-1 flex items-center justify-center bg-gradient-to-r from-black to-green-500">
+      <div className="w-[70vw] flex items-center justify-center bg-gradient-to-r from-black to-gray-800">
         <div className="bg-gray-800 p-5 shadow-md rounded-md w-full max-w-md text-white flex flex-col items-center justify-center">
           <div className="mb-5 float-left text-left">
             <div className="mb-5">
               <h2 className="text-2xl font-semibold">Login</h2>
               <span className="text-white pr-2">New to dailycode?</span>
-              <span className="text-blue-600">Signup</span>
+              <span className="text-blue-600 hover:text-blue-500 hover:cursor-pointer">Signup</span>
             </div>
 
             <div className="mb-4">
@@ -32,7 +28,7 @@ export const SignIn = () => {
               <input
                 type="email"
                 id="email"
-                className="w-full py-2 px-3 mt-1 bg-gray-700 text-white rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full py-2 px-3 mt-1 bg-gray-700 text-white rounded-md active:bg-inherit focus:outline-none focus:border-blue-500"
               />
             </div>
 
@@ -48,7 +44,7 @@ export const SignIn = () => {
             </div>
 
             <button
-              // onClick={handleSignIn}
+              onClick={() => onSignin()}
               className="w-full bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600"
             >
               Sign In
