@@ -3,7 +3,7 @@ import Card from "../components/common/Card";
 const LandingPage = () => {
   return (
     <div className="h-[92vh] bg-gradient-to-r from-black to-gray-800 text-white">
-      <div className="p-8">
+      <div className="p-8 mx-[20vh]">
         <h1 className="text-4xl font-bold mb-4">Welcome to Daily code!</h1>
         <p className="text-lg mb-6">
           At DailyCode, we believe in the power of consistent practice to sharpen your coding skills
