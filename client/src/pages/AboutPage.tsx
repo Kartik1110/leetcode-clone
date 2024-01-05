@@ -1,7 +1,7 @@
 function AboutPage() {
   return (
-    <div className="h-[92vh] w-screen bg-gradient-to-r from-black to-gray-800 text-white">
-      <div className="p-8">
+    <div className="h-[92vh]  w-screen bg-gradient-to-r from-black to-gray-800 text-white">
+      <div className="p-8 mx-[20vh]">
         <h1 className="text-4xl font-bold mb-4">About Us</h1>
         <p>Welcome to DailyCode - Your Daily Dose of Coding Challenges!</p>
         <p>

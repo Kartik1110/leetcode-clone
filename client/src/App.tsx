@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
 import MainPage from "./pages/MainPage";
 import "./index.css";
+import ProblemsListPage from "./pages/ProblemsListPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ function App() {
         {
           path: "/about",
           element: <AboutPage />,
+        },
+        {
+          path: "/problems",
+          element: <ProblemsListPage />,
         },
       ],
     },

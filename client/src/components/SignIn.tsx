@@ -10,7 +10,12 @@ function SignIn() {
   return (
     <div className="flex h-[92vh] w-screen ">
       <div className="w-[30vw]">
-        <img src={siginBg} alt="High Tech Image" className="w-full h-full object-cover" />
+        <img
+          src={siginBg}
+          alt="High Tech Image"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
       </div>
 
       <div className="w-[70vw] flex items-center justify-center bg-gradient-to-r from-black to-gray-800">
