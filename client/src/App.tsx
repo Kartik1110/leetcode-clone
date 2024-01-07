@@ -7,6 +7,7 @@ import MainPage from "./pages/MainPage";
 import "./index.css";
 import ProblemsListPage from "./pages/ProblemsListPage";
 import SignUp from "./components/SignUp";
+import ProblemPage from "./pages/ProblemPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,6 +35,10 @@ function App() {
         {
           path: "/problems",
           element: <ProblemsListPage />,
+        },
+        {
+          path: "/problem/:id",
+          element: <ProblemPage />,
         },
       ],
     },

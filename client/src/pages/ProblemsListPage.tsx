@@ -1,4 +1,5 @@
 import { FaRegFile } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function ProblemsListPage() {
   const problemsList = [
@@ -36,9 +37,12 @@ function ProblemsListPage() {
           <div className="w-[5vh]">
             <p className="mt-2">{problem.id}.</p>
           </div>
-          <div className="w-[20vh] hover:cursor-pointer hover:text-blue-500">
+          <Link
+            to={`/problem/${problem.id}`}
+            className="w-[20vh] hover:cursor-pointer hover:text-blue-500"
+          >
             <p className="mt-2">{problem.title}</p>
-          </div>
+          </Link>
           <div className=" px-2 w-[20vh] hover:cursor-pointer hover:text-blue-500">
             <p className="mt-2 flex items-center">
               <span className="pr-2">
@@ -48,7 +52,7 @@ function ProblemsListPage() {
             </p>
           </div>
           <div className="w-[15vh]">
-            <p className="mt-2">{problem.difficulty}</p>
+            <p className="mt-2 text-red-500">{problem.difficulty}</p>
           </div>
         </div>
       ))}
