@@ -16,6 +16,7 @@ function Navbar() {
       <div>
         {navigationTabs.map((item) => (
           <NavLink
+            key={item.id}
             to={item.path}
             className={({ isActive, isPending }) =>
               isActive
