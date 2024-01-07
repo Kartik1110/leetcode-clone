@@ -9,11 +9,10 @@ function ProblemsListPage() {
     { id: 5, title: "Remove Duplicates from Sorted Array", difficulty: "Easy" },
     { id: 6, title: "Two Sum", difficulty: "Easy" },
     { id: 7, title: "Longest Substring Without Repeating Characters", difficulty: "Medium" },
-    { id: 8, title: "Merge k Sorted Lists", difficulty: "Hard" },
   ];
 
   return (
-    <div className="h-[92vh] w-screen bg-gradient-to-r from-black to-gray-800 text-white p-5 overflow-auto">
+    <div className="h-[92vh] w-screen bg-gradient-to-r from-black to-gray-800 text-white p-8 overflow-auto">
       <div className="flex justify-between items-center mx-[20vh] rounded-lg bg-gray-600 h-14 px-10">
         <div className="w-[5vh]">
           <h2>ID</h2>
