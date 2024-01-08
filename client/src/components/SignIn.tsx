@@ -1,11 +1,44 @@
-import Card from "./common/Card";
-import googleLogo from "../assets/google.svg";
-import siginBg from "../assets/signin-bg.jpg";
-import { Link } from "react-router-dom";
+import Card from './common/Card';
+import googleLogo from '../assets/google.svg';
+import siginBg from '../assets/signin-bg.jpg';
+import { Link } from 'react-router-dom';
+import { signInService } from '../services';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+
+type SignInType = {
+  email: string;
+  password: string;
+};
 
 function SignIn() {
-  const onSignin = () => {
-    alert("Sign In");
+  const [userData, setUserData] = useState<SignInType>({ email: '', password: '' });
+  const queryClient = useQueryClient();
+
+  /* The `signinMutation` is a mutation function created using the `useMutation` hook from the
+`@tanstack/react-query` library. It is used to handle the sign-in functionality. */
+  const signinMutation = useMutation({
+    mutationFn: signInService,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ['signin'] });
+      toast.success(data.data.message);
+      setUserData({ email: '', password: '' });
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
+  const onHandleSignIn = () => {
+    if (userData.email && userData.password) {
+      signinMutation.mutate(userData);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setUserData({ ...userData, [e.target.id]: e.target.value });
   };
 
   return (
@@ -26,7 +59,7 @@ function SignIn() {
               <h2 className="text-2xl font-semibold">Login</h2>
               <span className="text-white pr-2">New to dailycode?</span>
               <Link
-                to={"/signup"}
+                to={'/signup'}
                 className="text-blue-600 hover:text-blue-500 hover:cursor-pointer"
               >
                 Signup
@@ -41,6 +74,8 @@ function SignIn() {
                 type="email"
                 id="email"
                 className="w-full py-2 px-3 mt-1 bg-gray-700 text-white rounded-md active:bg-inherit focus:outline-none focus:border-blue-500"
+                value={userData.email}
+                onChange={(e) => handleChange(e)}
               />
             </div>
 
@@ -49,21 +84,23 @@ function SignIn() {
                 Password:
               </label>
               <input
-                type="password"
+                type='password'
                 id="password"
                 className="w-full py-2 px-3 mt-1 bg-gray-700 text-white rounded-md focus:outline-none focus:border-blue-500"
+                value={userData.password}
+                onChange={(e) => handleChange(e)}
               />
             </div>
 
             <button
-              onClick={() => onSignin()}
+              onClick={onHandleSignIn}
               className="w-full bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600"
             >
               Sign In
             </button>
           </div>
           <button
-            onClick={() => onSignin()}
+            onClick={() => alert('Goggle sign in')}
             className="flex items-center justify-center text-white mt-5 rounded-md focus:outline-none"
           >
             <img src={googleLogo} alt="Google Logo" className="h-5 w-5 mr-2" />

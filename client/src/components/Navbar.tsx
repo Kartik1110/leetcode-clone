@@ -1,10 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
-import appLogo from "../assets/app-logo.svg";
+import { Link, NavLink } from 'react-router-dom';
+import appLogo from '../assets/app-logo.svg';
 
 function Navbar() {
   const navigationTabs = [
-    { id: 1, name: "Problems", path: "/problems" },
-    { id: 2, name: "About", path: "/about" },
+    { id: 1, name: 'Problems', path: '/problems' },
+    { id: 2, name: 'About', path: '/about' },
   ];
   return (
     <div className="h-[8vh] w-screen bg-gray-900 p-4 flex items-center justify-between">
@@ -20,10 +20,10 @@ function Navbar() {
             to={item.path}
             className={({ isActive, isPending }) =>
               isActive
-                ? "px-3 text-blue-500"
+                ? 'px-3 text-blue-500'
                 : isPending
-                ? "pending"
-                : "px-3 text-white hover:text-blue-500"
+                  ? 'pending'
+                  : 'px-3 text-white hover:text-blue-500'
             }
           >
             {item.name}

@@ -1,11 +1,12 @@
-import Card from "./common/Card";
-import googleLogo from "../assets/google.svg";
-import signUpBg from "../assets/signup-bg.jpg";
-import { Link } from "react-router-dom";
+import Card from './common/Card';
+import googleLogo from '../assets/google.svg';
+import signUpBg from '../assets/signup-bg.jpg';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
+  
   const onSignUp = () => {
-    alert("Sign Up");
+    alert('Sign Up');
   };
 
   return (
@@ -26,7 +27,7 @@ function SignUp() {
               <h2 className="text-2xl font-semibold">Sign Up</h2>
               <span className="text-white pr-2">Already have an account?</span>
               <Link
-                to={"/login"}
+                to={'/login'}
                 className="text-blue-600 hover:text-blue-500 hover:cursor-pointer"
               >
                 Sign In
