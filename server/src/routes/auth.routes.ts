@@ -32,11 +32,16 @@ authRouter.post("/signup", validate(SignUpSchema), async (req: Request, res: Res
 /* Signin */
 authRouter.post("/signin", validate(SignInSchema), async (req: Request, res: Response) => {
   let { email, password } = req.body;
-  const token = generateJwt({ email, password });
 
   let userFound = await prisma.user.findUnique({ where: { email } });
   if (userFound) {
-    res.status(200).json({ message: "Login successful", token });
+    const passwordMatch = await bcrypt.compare(password, userFound.password);
+    if (passwordMatch) {
+      const token = generateJwt({ email, password });
+      res.status(200).json({ message: "Login successful", token });
+    } else {
+      res.status(403).json({ message: "Invalid username or password" });
+    }
   } else {
     res.status(403).json({ message: "Invalid username or password" });
   }
