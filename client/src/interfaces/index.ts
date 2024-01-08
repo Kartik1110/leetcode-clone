@@ -1,1 +1,1 @@
-export type { OptionType } from "./dropdown.interface";
+export type { OptionType } from './dropdown.interface';

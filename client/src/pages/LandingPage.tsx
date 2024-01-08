@@ -1,4 +1,4 @@
-import Card from "../components/common/Card";
+import Card from '../components/common/Card';
 
 const LandingPage = () => {
   return (
@@ -19,8 +19,8 @@ const LandingPage = () => {
               <h3 className="text-xl font-semibold mb-2">1. Daily Challenges:</h3>
               <p>
                 Elevate your coding prowess with a daily dose of carefully curated challenges. Our
-                challenges span a variety of difficulty levels, ensuring that there's something for
-                everyone, whether you're a beginner or an experienced coder.
+                challenges span a variety of difficulty levels, ensuring that there is something for
+                everyone, whether you are a beginner or an experienced coder.
               </p>
             </div>
           </Card>

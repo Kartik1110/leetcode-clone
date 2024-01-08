@@ -17,11 +17,11 @@ function AboutPage() {
         <p>
           DailyCode was founded with the vision of making coding practice a daily habit. We
           understand the importance of consistent learning and the impact it has on your coding
-          proficiency. Whether you're gearing up for a technical interview, preparing for coding
+          proficiency. Whether you are gearing up for a technical interview, preparing for coding
           competitions, or simply honing your skills, DailyCode is here to support your coding
           journey.
         </p>
-        <p>Join us in this coding adventure, and let's make coding a part of your daily routine!</p>
+        <p>Join us in this coding adventure, and let us make coding a part of your daily routine!</p>
 
         <p className="mt-6">
           Happy Coding!

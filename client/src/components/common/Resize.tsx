@@ -1,28 +1,28 @@
-import { PanelResizeHandle } from "react-resizable-panels";
+import { PanelResizeHandle } from 'react-resizable-panels';
 
 const style = {
   ResizeHandleOuter: {
-    position: "relative",
-    outline: "none",
-    backgroundColor: "transparent",
+    position: 'relative',
+    outline: 'none',
+    backgroundColor: 'transparent',
   },
 };
 
-function Resize({ className = "", id }: { className?: string; id?: string }) {
+function Resize({ className = '', id }: { className?: string; id?: string }) {
   return (
-    <PanelResizeHandle className={[style.ResizeHandleOuter, className].join(" ")} id={id}>
+    <PanelResizeHandle className={[style.ResizeHandleOuter, className].join(' ')} id={id}>
       <div
-        style={{ transition: "background-color 0.2s linear" }}
-        className="relative m-1 h-[100%] w-[10px] active:bg-slate-500 bg-transparent rounded-full"
+        style={{ transition: 'background-color 0.2s linear' }}
+        className="relative m-1 h-[95%] w-[10px] active:bg-slate-500 bg-transparent rounded-full"
       >
         <svg
           style={{
-            width: "1em",
-            height: "1em",
-            padding: "2px",
-            position: "absolute",
-            left: "calc(50% - 0.5rem)",
-            top: "calc(50% - 0.5rem)",
+            width: '1em',
+            height: '1em',
+            padding: '2px',
+            position: 'absolute',
+            left: 'calc(50% - 0.5rem)',
+            top: 'calc(50% - 0.5rem)',
           }}
           viewBox="0 0 24 24"
         >

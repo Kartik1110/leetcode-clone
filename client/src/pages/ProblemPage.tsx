@@ -1,24 +1,24 @@
-import { useParams } from "react-router-dom";
-import CodeMirror, { Extension, ReactCodeMirrorRef } from "@uiw/react-codemirror";
-import { useEffect, useRef, useState } from "react";
-import { javascript } from "@codemirror/lang-javascript";
-import { syntaxTree } from "@codemirror/language";
-import { OptionType } from "../interfaces";
-import Dropdown from "../components/common/Dropdown";
-import { PanelGroup, Panel } from "react-resizable-panels";
-import Resize from "../components/common/Resize";
-import { python } from "@codemirror/lang-python";
+import { useParams } from 'react-router-dom';
+import CodeMirror, { Extension, ReactCodeMirrorRef } from '@uiw/react-codemirror';
+import { useEffect, useRef, useState } from 'react';
+import { javascript } from '@codemirror/lang-javascript';
+import { syntaxTree } from '@codemirror/language';
+import { OptionType } from '../interfaces';
+import Dropdown from '../components/common/Dropdown';
+import { PanelGroup, Panel } from 'react-resizable-panels';
+import Resize from '../components/common/Resize';
+import { python } from '@codemirror/lang-python';
 
 function ProblemPage() {
   const { id } = useParams();
   const refs = useRef<ReactCodeMirrorRef>({});
   const [extensionsList, setExtensionsList] = useState<Extension[]>([]);
   const [codeEditorValue, setCodeEditorValue] = useState<string | undefined>();
-  const [selectedOption, setSelectedOption] = useState<string | null>("Javascript");
+  const [selectedOption, setSelectedOption] = useState<string | null>('Javascript');
 
   const languagesList = [
-    { id: 1, option: "Javascript" },
-    { id: 2, option: "Python" },
+    { id: 1, option: 'Javascript' },
+    { id: 2, option: 'Python' },
   ];
 
   /**
@@ -27,7 +27,7 @@ function ProblemPage() {
    */
   const handleOptionClick = (
     option: OptionType,
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
   ) => {
     setSelectedOption(option.option);
     setIsOpen(false);
@@ -42,7 +42,7 @@ function ProblemPage() {
       /* parse editor syntax tree */
       const tree = syntaxTree(refs?.current?.view?.state);
       /* get statements */
-      const statements = tree.topNode.getChildren("Statement");
+      const statements = tree.topNode.getChildren('Statement');
       if (statements && statements.length > 0) {
         statements.forEach((statement) => {
           if (refs?.current?.view) {
@@ -58,9 +58,9 @@ function ProblemPage() {
   };
 
   useEffect(() => {
-    if (selectedOption === "Javascript") {
+    if (selectedOption === 'Javascript') {
       setExtensionsList([javascript()]);
-    } else if (selectedOption === "Python") {
+    } else if (selectedOption === 'Python') {
       setExtensionsList([python()]);
     }
   }, [selectedOption]);
@@ -99,9 +99,9 @@ function ProblemPage() {
               />
             </div>
             <CodeMirror
-              style={{ overflow: "auto" }}
+              style={{ overflow: 'auto' }}
               height="79vh"
-              theme={"dark"}
+              theme={'dark'}
               className="text-lg"
               ref={refs}
               value={codeEditorValue}

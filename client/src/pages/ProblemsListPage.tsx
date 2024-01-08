@@ -1,15 +1,15 @@
-import { FaRegFile } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaRegFile } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function ProblemsListPage() {
   const problemsList = [
-    { id: 1, title: "Remove Duplicates from Sorted Array", difficulty: "Easy" },
-    { id: 2, title: "Two Sum", difficulty: "Easy" },
-    { id: 3, title: "Longest Substring Without Repeating Characters", difficulty: "Medium" },
-    { id: 4, title: "Merge k Sorted Lists", difficulty: "Hard" },
-    { id: 5, title: "Remove Duplicates from Sorted Array", difficulty: "Easy" },
-    { id: 6, title: "Two Sum", difficulty: "Easy" },
-    { id: 7, title: "Longest Substring Without Repeating Characters", difficulty: "Medium" },
+    { id: 1, title: 'Remove Duplicates from Sorted Array', difficulty: 'Easy' },
+    { id: 2, title: 'Two Sum', difficulty: 'Easy' },
+    { id: 3, title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium' },
+    { id: 4, title: 'Merge k Sorted Lists', difficulty: 'Hard' },
+    { id: 5, title: 'Remove Duplicates from Sorted Array', difficulty: 'Easy' },
+    { id: 6, title: 'Two Sum', difficulty: 'Easy' },
+    { id: 7, title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium' },
   ];
 
   return (

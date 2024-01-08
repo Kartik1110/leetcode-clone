@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { OptionType } from "../../interfaces";
+import { useState } from 'react';
+import { OptionType } from '../../interfaces';
 
 const Dropdown = ({
   options,

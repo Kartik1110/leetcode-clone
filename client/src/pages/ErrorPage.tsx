@@ -1,5 +1,5 @@
-import { useRouteError, ErrorResponse } from "react-router-dom";
-import Card from "../components/common/Card"; // Adjust the path based on your project structure
+import { useRouteError, ErrorResponse } from 'react-router-dom';
+import Card from '../components/common/Card'; // Adjust the path based on your project structure
 
 function ErrorPage() {
   const error = useRouteError() as ErrorResponse;
