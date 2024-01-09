@@ -6,11 +6,7 @@ import { signInService } from '../services';
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { useForm, FieldError, SubmitHandler } from 'react-hook-form';
-
-type SignInType = {
-  email: string;
-  password: string;
-};
+import { SignInType } from '../interfaces';
 
 function SignIn() {
   const queryClient = useQueryClient();
