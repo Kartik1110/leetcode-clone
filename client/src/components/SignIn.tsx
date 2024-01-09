@@ -4,17 +4,18 @@ import siginBg from '../assets/signin-bg.jpg';
 import { Link } from 'react-router-dom';
 import { signInService } from '../services';
 import { useQueryClient, useMutation } from '@tanstack/react-query';
-import { useState } from 'react';
 import { toast } from 'react-toastify';
-
-type SignInType = {
-  email: string;
-  password: string;
-};
+import { useForm, FieldError, SubmitHandler } from 'react-hook-form';
+import { SignInType } from '../interfaces';
 
 function SignIn() {
-  const [userData, setUserData] = useState<SignInType>({ email: '', password: '' });
   const queryClient = useQueryClient();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<SignInType>();
 
   /* The `signinMutation` is a mutation function created using the `useMutation` hook from the
 `@tanstack/react-query` library. It is used to handle the sign-in functionality. */
@@ -23,22 +24,17 @@ function SignIn() {
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ['signin'] });
       toast.success(data.data.message);
-      setUserData({ email: '', password: '' });
+      reset({ email: '', password: '' });
     },
     onError: (error) => {
       toast.error(error.message);
     },
   });
 
-  const onHandleSignIn = () => {
-    if (userData.email && userData.password) {
-      signinMutation.mutate(userData);
+  const onHandleSignIn: SubmitHandler<SignInType> = (data) => {
+    if (data.email && data.password) {
+      signinMutation.mutate(data);
     }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setUserData({ ...userData, [e.target.id]: e.target.value });
   };
 
   return (
@@ -74,9 +70,17 @@ function SignIn() {
                 type="email"
                 id="email"
                 className="w-full py-2 px-3 mt-1 bg-gray-700 text-white rounded-md active:bg-inherit focus:outline-none focus:border-blue-500"
-                value={userData.email}
-                onChange={(e) => handleChange(e)}
+                {...register('email', {
+                  required: 'This field is required !',
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: 'The value should be an email !',
+                  },
+                })}
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{(errors.email as FieldError).message}</p>
+              )}
             </div>
 
             <div className="mb-6">
@@ -84,16 +88,24 @@ function SignIn() {
                 Password:
               </label>
               <input
-                type='password'
+                type="password"
                 id="password"
                 className="w-full py-2 px-3 mt-1 bg-gray-700 text-white rounded-md focus:outline-none focus:border-blue-500"
-                value={userData.password}
-                onChange={(e) => handleChange(e)}
+                {...register('password', {
+                  required: 'This field is required !',
+                  minLength: {
+                    value: 6,
+                    message: 'Password should be min 6 characters !',
+                  },
+                })}
               />
+              {errors.password && (
+                <p className="text-red-500 text-sm">{(errors.password as FieldError).message}</p>
+              )}
             </div>
 
             <button
-              onClick={onHandleSignIn}
+              onClick={handleSubmit(onHandleSignIn)}
               className="w-full bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600"
             >
               Sign In

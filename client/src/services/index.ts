@@ -1,1 +1,1 @@
-export { signInService } from './auth';
+export { signInService, signUpService } from './auth';

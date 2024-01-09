@@ -4,7 +4,7 @@ export const UserSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
   name: z.string(),
-  role: z.enum(["ADMIN", "USER"]),
+  role: z.enum(["ADMIN", "USER"]).optional(),
 });
 
 export const SignUpSchema = z.object({
