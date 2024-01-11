@@ -38,7 +38,12 @@ authRouter.post("/signin", validate(SignInSchema), async (req: Request, res: Res
     const passwordMatch = await bcrypt.compare(password, userFound.password);
     if (passwordMatch) {
       const token = generateJwt({ email, password });
-      res.status(200).json({ message: "Login successful", token });
+      const userData = {
+        name: userFound.name,
+        email: userFound.email,
+        role: userFound.role,
+      }
+      res.status(200).json({ message: "Login successful", user: userData, token });
     } else {
       res.status(403).json({ message: "Invalid username or password" });
     }
