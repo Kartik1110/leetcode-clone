@@ -22,6 +22,7 @@ function SignIn() {
   const signinMutation = useMutation({
     mutationFn: signInService,
     onSuccess: (data) => {
+      localStorage.setItem('token', data.data.token);
       queryClient.invalidateQueries({ queryKey: ['signin'] });
       toast.success(data.data.message);
       reset({ email: '', password: '' });
