@@ -4,4 +4,5 @@ export const API_URL = {
   baseUrl: baseURL || '',
   signIn: baseURL ? `${baseURL}/signin` : '',
   signUp: baseURL ? `${baseURL}/signup` : '',
+  problemsList: baseURL ? `${baseURL}/problems` : '',
 };
