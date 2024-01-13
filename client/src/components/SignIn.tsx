@@ -1,7 +1,7 @@
 import Card from './common/Card';
 import googleLogo from '../assets/google.svg';
 import siginBg from '../assets/signin-bg.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signInService } from '../services';
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
@@ -10,6 +10,7 @@ import { SignInType } from '../interfaces';
 
 function SignIn() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -26,6 +27,7 @@ function SignIn() {
       queryClient.invalidateQueries({ queryKey: ['signin'] });
       toast.success(data.data.message);
       reset({ email: '', password: '' });
+      navigate('/problems');
     },
     onError: (error) => {
       toast.error(error.message);
