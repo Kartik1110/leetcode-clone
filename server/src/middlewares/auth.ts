@@ -7,13 +7,11 @@ const SECRET_KEY = "s3cr3tk3333y";
 /* This middleware is used to verify the jwt token */
 const authenticateJwt = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
-  console.log("🚀 ~ file: auth.ts:10 ~ authenticateJwt ~ authHeader:", authHeader)
 
   if (authHeader) {
     const token = authHeader.split(" ")[1];
 
     jwt.verify(token, SECRET_KEY, (err: jwt.VerifyErrors | null, user: any) => {
-      console.log("🚀 ~ file: auth.ts:15 ~ jwt.verify ~ user:", user)
       if (err) {
         return res.status(403).send({ message: 'Invalid token' });
       }

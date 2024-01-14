@@ -23,7 +23,6 @@ problemsRouter.get(
 /* GET - Problems by id */
 problemsRouter.get("/problem/:id", authenticateJwt, async (req: Request, res: Response) => {
   const problemId = req.params.id;
-  console.log("🚀 ~ file: problem.routes.ts:27 ~ problemsRouter.get ~ problemId:", problemId);
   const problem = await prisma.problems.findFirst({ where: { id: problemId } });
   if (!problem) {
     return res.status(404).json({ error: "problem not found" });

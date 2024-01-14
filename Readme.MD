@@ -23,4 +23,5 @@ Leveraging a robust tech stack comprising ReactJs, Tailwind, Nodejs, MongoDB, Ty
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Prisma](https://www.prisma.io/) - ORM
 - [Tailwind](https://tailwindcss.com/) - CSS
+- [Docker](https://docker.com/)
 - [Vercel](https://vercel.com) - Hosting

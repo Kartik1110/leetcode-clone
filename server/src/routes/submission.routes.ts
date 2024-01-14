@@ -41,7 +41,6 @@ submissionRouter.post(
     if (problemFound) {
       try {
         const result = await dockerHelper(problemId, submission);
-        console.log("🚀 ~ file: submission.routes.ts:43 ~ result:", result);
         return res.status(200).json({ message: "AC", result });
       } catch (error) {
         console.error(error);
