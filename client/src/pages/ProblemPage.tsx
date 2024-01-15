@@ -8,6 +8,7 @@ import Dropdown from '../components/common/Dropdown';
 import { PanelGroup, Panel } from 'react-resizable-panels';
 import Resize from '../components/common/Resize';
 import { python } from '@codemirror/lang-python';
+import { JS_CODE_SNIPPET, PYTHON_CODE_SNIPPET } from '../constants';
 
 function ProblemPage() {
   const { id } = useParams();
@@ -60,10 +61,21 @@ function ProblemPage() {
   useEffect(() => {
     if (selectedOption === 'Javascript') {
       setExtensionsList([javascript()]);
+      setCodeEditorValue(JS_CODE_SNIPPET);
     } else if (selectedOption === 'Python') {
       setExtensionsList([python()]);
+      setCodeEditorValue(PYTHON_CODE_SNIPPET);
     }
   }, [selectedOption]);
+
+  useEffect(() => {
+    /* Setting default code snippets */ 
+    if (selectedOption === 'Javascript') {
+      setCodeEditorValue(JS_CODE_SNIPPET);
+    } else if (selectedOption === 'Python') {
+      setCodeEditorValue(PYTHON_CODE_SNIPPET);
+    }
+  }, []);
 
   return (
     <div className="h-[92vh] w-screen bg-gradient-to-r from-black to-gray-800 text-white p-8 overflow-auto">
