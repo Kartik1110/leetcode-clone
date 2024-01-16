@@ -7,10 +7,14 @@ import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { useForm, FieldError, SubmitHandler } from 'react-hook-form';
 import { SignInType } from '../interfaces';
+import { useSetRecoilState } from 'recoil';
+import { userAtom } from '../store';
 
 function SignIn() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const setUser = useSetRecoilState(userAtom);
+
   const {
     register,
     handleSubmit,
@@ -23,7 +27,9 @@ function SignIn() {
   const signinMutation = useMutation({
     mutationFn: signInService,
     onSuccess: (data) => {
+      setUser(data.data.user);
       localStorage.setItem('token', data.data.token);
+      localStorage.setItem('role', data.data.user.role);
       queryClient.invalidateQueries({ queryKey: ['signin'] });
       toast.success(data.data.message);
       reset({ email: '', password: '' });

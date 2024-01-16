@@ -1,1 +1,1 @@
-export { userAtom } from './auth.atom';
+export { userAtom } from './user.atom';
