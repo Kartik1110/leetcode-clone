@@ -1,7 +1,9 @@
+import { GridColDef } from '@mui/x-data-grid';
+
 export enum Difficulty {
-    EASY = 'EASY',
-    MEDIUM = 'MEDIUM',
-    HARD = 'HARD',
+  EASY = 'EASY',
+  MEDIUM = 'MEDIUM',
+  HARD = 'HARD',
 }
 export interface Problems {
   id: string;
@@ -10,3 +12,7 @@ export interface Problems {
   difficulty: Difficulty;
 }
 
+export interface ProblemsTableDataInterface {
+  columns: GridColDef[];
+  rows: Problems[];
+}
