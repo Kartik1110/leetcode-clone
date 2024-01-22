@@ -6,9 +6,9 @@ import { syntaxTree } from '@codemirror/language';
 import { OptionType } from '../interfaces';
 import Dropdown from '../components/common/Dropdown';
 import { PanelGroup, Panel } from 'react-resizable-panels';
+import { JS_CODE_SNIPPET, PYTHON_CODE_SNIPPET } from '../constants';
 import Resize from '../components/common/Resize';
 import { python } from '@codemirror/lang-python';
-import { JS_CODE_SNIPPET, PYTHON_CODE_SNIPPET } from '../constants';
 
 function ProblemPage() {
   const { id } = useParams();
@@ -78,10 +78,10 @@ function ProblemPage() {
   }, []);
 
   return (
-    <div className="h-[92vh] w-screen bg-gradient-to-r from-black to-gray-800 text-white p-8 overflow-auto">
+    <div className="h-[92vh] w-screen bg-gradient-to-r from-black to-gray-800 text-white p-5 overflow-auto">
       <PanelGroup autoSaveId="example" direction="horizontal">
         <Panel defaultSize={20} minSize={20} order={1}>
-          <div className="bg-gray-800 text-white p-5 w-full h-full overflow-hidden rounded-md">
+          <div className="bg-zinc-800 text-white p-5 w-full h-full overflow-hidden rounded-md">
             <h1>Problem: {id}</h1>
             <h3>26. Remove Duplicates from Sorted Array</h3>
             <p>
@@ -112,7 +112,7 @@ function ProblemPage() {
             </div>
             <CodeMirror
               style={{ overflow: 'auto' }}
-              height="79vh"
+              height="81vh"
               theme={'dark'}
               className="text-lg"
               ref={refs}
