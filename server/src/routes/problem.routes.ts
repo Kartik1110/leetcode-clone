@@ -11,11 +11,35 @@ problemsRouter.get(
   authenticateJwt,
   //   validate(ProblemsSchema),
   async (req: Request, res: Response) => {
-    const problemsList = await prisma.problems.findMany();
-    if (problemsList.length > 0) {
-      res.status(200).json(problemsList);
-    } else {
-      res.status(404).json({ message: "No problems found" });
+    /* Page starts from 0 */
+    const { page, pageSize } = req.query;
+
+    if (page && pageSize && Number(pageSize) > 0) {
+      let queryOptions = {
+        skip: Number(page) * Number(pageSize),
+        take: Number(pageSize),
+      };
+      /* If page is 0 then skip will be 0, this is because DataGrid sets 1st page as 0 */
+      if (page && Number(page) === 0 && pageSize && Number(pageSize) > 0) {
+        queryOptions = {
+          skip: 0,
+          take: Number(pageSize),
+        };
+      }
+      try {
+        const totalProblems = await prisma.problems.count();
+
+        const problemsList = await prisma.problems.findMany(queryOptions);
+        if (problemsList && problemsList.length > 0) {
+          res
+            .status(200)
+            .json({ message: "Data fetched successfully", totalProblems, data: problemsList });
+        } else {
+          res.status(404).json({ message: "No problems found" });
+        }
+      } catch (error) {
+        res.status(500).json({ message: "Internal server error" });
+      }
     }
   }
 );
