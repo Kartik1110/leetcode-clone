@@ -16,3 +16,8 @@ export interface ProblemsTableDataInterface {
   columns: GridColDef[];
   rows: Problems[];
 }
+
+export interface PageInfoInterface {
+  page: number;
+  pageSize: number;
+}

@@ -82,8 +82,8 @@ function ProblemPage() {
       <PanelGroup autoSaveId="example" direction="horizontal">
         <Panel defaultSize={20} minSize={20} order={1}>
           <div className="bg-zinc-800 text-white p-5 w-full h-full overflow-hidden rounded-md">
-            <h1>Problem: {id}</h1>
-            <h3>26. Remove Duplicates from Sorted Array</h3>
+            <h1 className='mb-10'>Problem: {id}</h1>
+            <h3 className='mb-10'>26. Remove Duplicates from Sorted Array</h3>
             <p>
               - Given an integer array nums sorted in non-decreasing order, remove the duplicates
               in-place such that each unique element appears only once. The relative order of the
