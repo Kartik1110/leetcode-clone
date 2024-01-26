@@ -1,4 +1,4 @@
-<img src="./client/src/assets/app-bg.png" alt="CodeX Logo">
+<img src="./client/src/assets/app-bg-new.png" alt="CodeX Logo">
 
 <p align="center" style="margin-top: 20px">
   <p align="center">
