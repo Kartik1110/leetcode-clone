@@ -4,9 +4,9 @@ const LandingPage = () => {
   return (
     <div className="h-[92vh] bg-gradient-to-r from-black to-gray-800 text-white">
       <div className="p-8 mx-[20vh]">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Daily code!</h1>
+        <h1 className="text-4xl font-bold mb-4">Welcome to CodeX!</h1>
         <p className="text-lg mb-6">
-          At DailyCode, we believe in the power of consistent practice to sharpen your coding skills
+          At CodeX, we believe in the power of consistent practice to sharpen your coding skills
           and prepare you for the challenges of the tech world. Our platform is dedicated to
           providing a daily stream of coding and algorithmic problems designed to enhance your
           problem-solving abilities and boost your confidence in tackling real-world coding

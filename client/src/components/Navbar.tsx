@@ -19,8 +19,8 @@ function Navbar() {
   return (
     <div className="h-[8vh] w-screen bg-gray-900 p-4 flex items-center justify-between">
       <Link to="/" className="flex items-center">
-        <img src={appLogo} alt="dailycode-app-logo" className="h-8 px-5" />
-        <span className="text-xl text-white font-semibold">Daily code</span>
+        <img src={appLogo} alt="codex-app-logo" className="h-8 px-5" />
+        <span className="text-xl text-white font-semibold">CodeX</span>
       </Link>
 
       <div className="flex items-center justify-between">

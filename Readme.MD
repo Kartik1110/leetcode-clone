@@ -1,4 +1,4 @@
-<img src="./client/src/assets/app-bg.png" alt="DailyCode Logo">
+<img src="./client/src/assets/app-bg.png" alt="CodeX Logo">
 
 <p align="center" style="margin-top: 20px">
   <p align="center">
@@ -11,7 +11,7 @@
 ## About this project
 
 
-Introducing DailyCode, a comprehensive and dynamic platform meticulously crafted to replicate the essence of Leetcode. 
+Introducing CodeX, a comprehensive and dynamic platform meticulously crafted to replicate the essence of Leetcode. 
 
 Leveraging a robust tech stack comprising ReactJs, Tailwind, Nodejs, MongoDB, Typescript, and Prisma ORM, this full-stack endeavor is poised to provide an immersive coding experience.
 
@@ -23,5 +23,5 @@ Leveraging a robust tech stack comprising ReactJs, Tailwind, Nodejs, MongoDB, Ty
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Prisma](https://www.prisma.io/) - ORM
 - [Tailwind](https://tailwindcss.com/) - CSS
-- [Docker](https://docker.com/)
+- [Docker](https://docker.com/) - Containerization
 - [Vercel](https://vercel.com) - Hosting
