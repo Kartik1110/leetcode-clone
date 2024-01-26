@@ -62,7 +62,7 @@ function SignIn() {
           <div className="mb-5 float-left text-left">
             <div className="mb-5">
               <h2 className="text-2xl font-semibold">Login</h2>
-              <span className="text-white pr-2">New to dailycode?</span>
+              <span className="text-white pr-2">New to CodeX?</span>
               <Link
                 to={'/signup'}
                 className="text-blue-600 hover:text-blue-500 hover:cursor-pointer"
